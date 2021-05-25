@@ -7,7 +7,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const config: webpack.Configuration = {
-  name: 'sleact',
+  name: 'le5',
   mode: isDevelopment ? 'development' : 'production',
   devtool: !isDevelopment ? 'hidden-source-map' : 'inline-source-map',
   resolve: {

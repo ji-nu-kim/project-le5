@@ -6,14 +6,26 @@ interface Props {
 }
 
 const Section1 = ({ scrollPercent }: Props) => {
-  const textHelloRef = useRef<HTMLHeadingElement>(null);
-  const textHello = textHelloRef.current;
-  const textNameRef = useRef<HTMLHeadingElement>(null);
-  const textName = textNameRef.current;
-  const textP1Ref = useRef<HTMLParagraphElement>(null);
-  const textP1 = textP1Ref.current;
-  const textP2Ref = useRef<HTMLParagraphElement>(null);
-  const textP2 = textP2Ref.current;
+  // const textHelloRef = useRef<HTMLHeadingElement>(null);
+  // const textHello = textHelloRef.current;
+  // const textNameRef = useRef<HTMLHeadingElement>(null);
+  // const textName = textNameRef.current;
+  // const textP1Ref = useRef<HTMLParagraphElement>(null);
+  // const textP1 = textP1Ref.current;
+  // const textP2Ref = useRef<HTMLParagraphElement>(null);
+  // const textP2 = textP2Ref.current;
+  
+  const bgWhiteRef = useRef<HTMLDivElement>(null);
+  const bgWhite = bgWhiteRef.current;
+
+  if (bgWhite) {
+    if (scrollPercent < 0.1) {
+      bgWhite.style.left = '100%';
+    } else if (scrollPercent > 0.1 && scrollPercent < 0.3) {
+      bgWhite.style.left = `${100 - ((scrollPercent - 0.1) * 500)}%`;
+      bgWhite.style.transition = 'all 0.1s linear';
+    }
+  }
 
   // if (textHello && textName) {
   //   if (scrollPercent < 0.1) {
@@ -55,20 +67,13 @@ const Section1 = ({ scrollPercent }: Props) => {
   return (
     <Section>
       <div className="stikcy-container">
-        <div className="cover-image"></div>
-
-        <div className="text-container">
-          <h1 className="text-hello" ref={textHelloRef}>
-            LE5
-          </h1>
-          <h2 className="text-name" ref={textNameRef}>
-            ...
-          </h2>
-          <p ref={textP1Ref}>The LE5 started with garbage dumped on the street.</p>
-          <p ref={textP2Ref}>
-            It's an experiment on the restartability of discarded objects.
-          </p>
-        </div>
+        <div className="bg-black"></div>
+        <div className="bg-white" ref={bgWhiteRef}></div>
+        <div className="text-1">LE5</div>
+        {/* <div>다시 시작합니다</div>
+        <div>길바닥</div>
+        <div>쓰레기의</div>
+        <div>재탄생</div> */}
       </div>
     </Section>
   );
