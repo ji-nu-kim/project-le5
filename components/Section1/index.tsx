@@ -1,79 +1,71 @@
-import React, { createElement, memo, useEffect, useRef } from 'react';
-import { Section } from './styles';
+import React, { memo, useEffect, useRef, useState } from 'react';
+import { ChangableImage, Section } from './styles';
 
 interface Props {
   scrollPercent: number;
 }
 
 const Section1 = ({ scrollPercent }: Props) => {
-  // const textHelloRef = useRef<HTMLHeadingElement>(null);
-  // const textHello = textHelloRef.current;
-  // const textNameRef = useRef<HTMLHeadingElement>(null);
-  // const textName = textNameRef.current;
-  // const textP1Ref = useRef<HTMLParagraphElement>(null);
-  // const textP1 = textP1Ref.current;
-  // const textP2Ref = useRef<HTMLParagraphElement>(null);
-  // const textP2 = textP2Ref.current;
-  
-  const bgWhiteRef = useRef<HTMLDivElement>(null);
-  const bgWhite = bgWhiteRef.current;
+  const [imageNumber, setImageNumber] = useState(1);
+  const sub1Ref = useRef<HTMLDivElement>(null);
+  const sub1 = sub1Ref.current;
+  const sub2Ref = useRef<HTMLDivElement>(null);
+  const sub2 = sub2Ref.current;
+  const sub3Ref = useRef<HTMLDivElement>(null);
+  const sub3 = sub3Ref.current;
 
-  if (bgWhite) {
+  if (sub1 && sub2 && sub3) {
     if (scrollPercent < 0.1) {
-      bgWhite.style.left = '100%';
-    } else if (scrollPercent > 0.1 && scrollPercent < 0.3) {
-      bgWhite.style.left = `${100 - ((scrollPercent - 0.1) * 500)}%`;
-      bgWhite.style.transition = 'all 0.1s linear';
+      sub1.style.opacity = '0';
+    } else {
+      sub1.style.opacity = '1';
+      sub1.style.transition = 'all .5s linear';
+    }
+
+    if (scrollPercent < 0.18) {
+      sub2.style.opacity = '0';
+    } else {
+      sub2.style.opacity = '1';
+      sub2.style.transition = 'all .5s linear';
+    }
+
+    if (scrollPercent < 0.26) {
+      sub3.style.opacity = '0';
+    } else {
+      sub3.style.opacity = '1';
+      sub3.style.transition = 'all .5s linear';
     }
   }
 
-  // if (textHello && textName) {
-  //   if (scrollPercent < 0.1) {
-  //     textHello.style.opacity = '1';
-  //     textName.style.visibility = 'visible';
-  //   } else if (scrollPercent >= 0.1 && scrollPercent < 0.15) {
-  //     textHello.style.opacity = `${1 - (1 / 5) * (scrollPercent + 0.01 - 0.1) * 100}`;
-  //     textHello.style.transition = 'all 0.2s linear';
-  //   } else {
-  //     textHello.style.opacity = '0';
-  //     textName.style.visibility = 'hidden';
-  //   }
-  //   console.log(scrollPercent);
-  //   if (scrollPercent < 0.15) {
-  //     textName.style.opacity = '0';
-  //     textName.style.visibility = 'visible';
-  //     textName.style.transform = 'translateY(-50px)';
-  //   } else if (scrollPercent >= 0.15 && scrollPercent < 0.2) {
-  //     textName.style.visibility = 'visible';
-  //     textName.style.opacity = `${0 + (1 / 5) * (scrollPercent + 0.01 - 0.15) * 100}`;
-  //     textName.style.transition = 'all 0.2s linear';
-  //     textName.style.transform = `translateY(${
-  //       -50 + (50 / 5) * (scrollPercent + 0.01 - 0.15) * 100
-  //     }px)`;
-  //   } else if (scrollPercent >= 0.2 && scrollPercent < 0.25) {
-  //     textName.style.visibility = 'visible';
-  //     textName.style.opacity = `${1 - (1 / 5) * (scrollPercent + 0.01 - 0.2) * 100}`;
-  //     textName.style.transition = 'all 0.2s linear';
-  //     textName.style.transform = `translateY(${
-  //       0 + (50 / 5) * (scrollPercent + 0.01 - 0.15) * 100
-  //     }px)`;
-  //   } else {
-  //     textName.style.opacity = '0';
-  //     textName.style.transform = 'translateY(50px)';
-  //     textName.style.visibility = 'hidden';
-  //   }
-  // }
+  useEffect(() => {
+    setTimeout(() => {
+      if (imageNumber >= 4) {
+        setImageNumber(1);
+      } else {
+        setImageNumber((prev) => prev + 1);
+      }
+    }, 4000);
+  }, [imageNumber]);
 
   return (
     <Section>
       <div className="stikcy-container">
-        <div className="bg-black"></div>
-        <div className="bg-white" ref={bgWhiteRef}></div>
-        <div className="text-1">LE5</div>
-        {/* <div>다시 시작합니다</div>
-        <div>길바닥</div>
-        <div>쓰레기의</div>
-        <div>재탄생</div> */}
+        <div className="main-title">LE5</div>
+        <div className="image-container">
+          <ChangableImage image={`/public/background${imageNumber}.jpg`} />
+          <div className="sub-title">
+            <div className="sub1" ref={sub1Ref}>
+              쓸모를 다해 버려진 쓰레기
+            </div>
+            <div className="sub2" ref={sub2Ref}>
+              누군가에게는 도움이
+            </div>
+            <div className="sub3" ref={sub3Ref}>
+              누군가에게는 위험이
+            </div>
+          </div>
+        </div>
+        <div className="footer-title">2015.05.03</div>
       </div>
     </Section>
   );
