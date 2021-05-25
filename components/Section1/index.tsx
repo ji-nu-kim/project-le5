@@ -55,7 +55,7 @@ const Section1 = ({ scrollPercent }: Props) => {
           <ChangableImage image={`/public/background${imageNumber}.jpg`} />
           <div className="sub-title">
             <div className="sub1" ref={sub1Ref}>
-              쓸모를 다해 버려진 쓰레기
+              쓸모를 다해 버려진 물건
             </div>
             <div className="sub2" ref={sub2Ref}>
               누군가에게는 도움이
@@ -65,7 +65,7 @@ const Section1 = ({ scrollPercent }: Props) => {
             </div>
           </div>
         </div>
-        <div className="footer-title">2015.05.03</div>
+        <div className="footer-title">버려진 물건의 가능성</div>
       </div>
     </Section>
   );

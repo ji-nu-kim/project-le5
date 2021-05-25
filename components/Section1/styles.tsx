@@ -20,23 +20,28 @@ export const Section = styled.section`
     position: sticky;
     top: 0;
     left: 0;
-    display: grid;
-    grid-template-rows: 44px auto 44px;
+
+    .main-title,
+    .sub-title,
+    .footer-title {
+      position: absolute;
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      z-index: 10;
+    }
 
     .main-title {
-      margin-left: 1rem;
+      top: 4px;
+      left: 1rem;
       align-self: center;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 2rem;
       font-family: 'Rubik', sans-serif;
     }
 
     .sub-title {
-      position: absolute;
       font-weight: bold;
       font-size: 1.5rem;
-      color: #ffffff;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
       top: 50%;
       transform: translateY(-50%);
       letter-spacing: 1px;
@@ -50,9 +55,10 @@ export const Section = styled.section`
     }
 
     .footer-title {
-      margin-right: 1rem;
+      bottom: 4px;
+      right: 1rem;
       justify-self: end;
-      font-size: 0.75rem;
+      font-size: 1.25rem;
       align-self: center;
       font-family: 'Rubik', sans-serif;
     }
@@ -64,9 +70,10 @@ export const Section = styled.section`
       justify-content: center;
       align-items: center;
     }
+
     @media (min-width: 768px) {
       .sub-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
     }
   }
@@ -78,6 +85,6 @@ export const ChangableImage = styled.div`
   background: url(${(props: IBackgroundImage) => props.image});
   background-size: cover;
   background-position: center;
-  filter: saturate(120%);
+  filter: saturate(180%);
   transition: all 0.5s linear;
 `;

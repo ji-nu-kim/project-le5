@@ -2,16 +2,13 @@ import React from 'react';
 import { Section } from './styles';
 
 interface Props {
-  scrollValue: number;
+  scrollPercent: number;
 }
 
-const Section3 = ({ scrollValue }: Props) => {
+const Section3 = ({ scrollPercent }: Props) => {
   return (
     <Section>
-      <div className="card card1">
-        <p className="card-message card1-message">muyaho</p>
-        <div className="card-image card1-image"></div>
-      </div>
+      <div>asdfadfs</div>
     </Section>
   );
 };

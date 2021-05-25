@@ -14,7 +14,7 @@ const Main = ({ currentY, scrollPercent }: Props) => {
     <Content>
       <Section1 scrollPercent={scrollPercent} />
       <Section2 scrollPercent={scrollPercent} />
-      <Section3 scrollValue={scrollPercent} />
+      <Section3 scrollPercent={scrollPercent} />
     </Content>
   );
 };
