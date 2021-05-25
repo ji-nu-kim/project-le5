@@ -30,7 +30,6 @@ export const Section = styled.section`
 
     .main-title {
       z-index: 10;
-      text-align: center;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -38,92 +37,64 @@ export const Section = styled.section`
       font-family: 'Rubik', sans-serif;
 
       .main-text {
-        font-size: 5rem;
-      }
-      .sub-text {
-        font-size: 1.2rem;
+        font-size: 6rem;
       }
     }
 
     .sub-title {
-      z-index: 5;
-      padding: 1rem;
-      opacity: 0;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20;
       font-weight: bold;
-      font-size: 1rem;
-      max-width: 250px;
-      text-align: justify;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
     }
 
     .sub1 {
-      background: rgba(0, 0, 0, 0.4);
-      top: 5%;
-      left: 5%;
+      transform: perspective(300px) translateZ(300px);
     }
 
     .sub2 {
-      background: rgba(0, 60, 255, 0.4);
-      top: 25%;
-      left: 30%;
+      transform: perspective(300px) translateZ(300px);
     }
 
     .sub3 {
-      background: rgba(255, 51, 0, 0.4);
-      top: 80%;
-      left: 15%;
-    }
-
-    .sub4 {
-      background: rgba(94, 255, 0, 0.4);
-      top: 12%;
-      left: 35%;
-      transform: rotate(-10deg);
-    }
-
-    .sub5 {
-      background: rgba(255, 238, 0, 0.4);
-      top: 40%;
-      left: 10%;
-      transform: rotate(10deg);
-    }
-
-    .sub6 {
-      background: rgba(212, 0, 255, 0.4);
-      top: 65%;
-      left: 40%;
-      transform: rotate(-25deg);
+      transform: perspective(300px) translateZ(300px);
     }
 
     .image-container {
       width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     @media (min-width: 768px) {
+      .main-title {
+        .main-text {
+          font-size: 10rem;
+        }
+      }
       .sub-title {
-        font-size: 1.25rem;
-        max-width: 300px;
+        font-size: 1.5rem;
       }
-      .sub2 {
-        top: 20%;
-        left: 35%;
-      }
+    }
 
-      .sub3 {
-        top: 70%;
-        left: 20%;
+    @media (min-width: 1024px) {
+      .main-title {
+        .main-text {
+          font-size: 15rem;
+        }
       }
-
-      .sub4 {
-        top: 5%;
-        left: 55%;
+      .sub-title {
+        top: 65%;
+        font-size: 2.5rem;
       }
-
-      .sub6 {
-        left: 65%;
+    }
+    @media (min-width: 1024px) and (min-height: 1360px) {
+      .sub-title {
+        top: 60%;
+        font-size: 2.5rem;
       }
     }
   }
@@ -132,8 +103,7 @@ export const Section = styled.section`
 export const ChangableImage = styled.div`
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-    url(${(props: IBackgroundImage) => props.image});
+  background: url(${(props: IBackgroundImage) => props.image});
   background-size: cover;
   background-position: center;
   filter: saturate(180%);

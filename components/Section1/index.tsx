@@ -13,70 +13,49 @@ const Section1 = ({ scrollPercent }: Props) => {
   const sub2 = sub2Ref.current;
   const sub3Ref = useRef<HTMLDivElement>(null);
   const sub3 = sub3Ref.current;
-  const sub4Ref = useRef<HTMLDivElement>(null);
-  const sub4 = sub4Ref.current;
-  const sub5Ref = useRef<HTMLDivElement>(null);
-  const sub5 = sub5Ref.current;
-  const sub6Ref = useRef<HTMLDivElement>(null);
-  const sub6 = sub6Ref.current;
 
-  if (sub1 && sub2 && sub3 && sub4 && sub5 && sub6) {
+  if (sub1 && sub2 && sub3) {
     if (scrollPercent < 0.45) {
       sub1.style.visibility = 'visible';
       sub2.style.visibility = 'visible';
       sub3.style.visibility = 'visible';
-      sub4.style.visibility = 'visible';
-      sub5.style.visibility = 'visible';
-      sub6.style.visibility = 'visible';
     } else {
       sub1.style.visibility = 'hidden';
       sub2.style.visibility = 'hidden';
       sub3.style.visibility = 'hidden';
-      sub4.style.visibility = 'hidden';
-      sub5.style.visibility = 'hidden';
-      sub6.style.visibility = 'hidden';
     }
 
-    if (scrollPercent < 0.1) {
-      sub1.style.opacity = '0';
+    if (scrollPercent <= 0.1) {
+      sub1.style.transform = 'perspective(300px) translateZ(300px)';
+    } else if (scrollPercent > 0.1 && scrollPercent <= 0.15) {
+      sub1.style.transform = `perspective(300px) translateZ(${
+        300 - (scrollPercent - 0.1) * 2000
+      }px)`;
+      sub1.style.transition = 'all .2s ease-in';
     } else {
-      sub1.style.opacity = '1';
-      sub1.style.transition = 'all .5s linear';
+      sub1.style.transform = 'perspective(300px) translateZ(0px)';
     }
 
-    if (scrollPercent < 0.14) {
-      sub2.style.opacity = '0';
+    if (scrollPercent <= 0.15) {
+      sub2.style.transform = 'perspective(300px) translateZ(300px)';
+    } else if (scrollPercent > 0.15 && scrollPercent <= 0.2) {
+      sub2.style.transform = `perspective(300px) translateZ(${
+        300 - (scrollPercent - 0.15) * 2000
+      }px)`;
+      sub2.style.transition = 'all .2s ease-in';
     } else {
-      sub2.style.opacity = '1';
-      sub2.style.transition = 'all .5s linear';
+      sub2.style.transform = 'perspective(300px) translateZ(0px)';
     }
 
-    if (scrollPercent < 0.18) {
-      sub3.style.opacity = '0';
+    if (scrollPercent <= 0.2) {
+      sub3.style.transform = 'perspective(300px) translateZ(300px)';
+    } else if (scrollPercent > 0.2 && scrollPercent <= 0.25) {
+      sub3.style.transform = `perspective(300px) translateZ(${
+        300 - (scrollPercent - 0.2) * 2000
+      }px)`;
+      sub3.style.transition = 'all .2s ease-in';
     } else {
-      sub3.style.opacity = '1';
-      sub3.style.transition = 'all .5s linear';
-    }
-
-    if (scrollPercent < 0.22) {
-      sub4.style.opacity = '0';
-    } else {
-      sub4.style.opacity = '1';
-      sub4.style.transition = 'all .5s linear';
-    }
-
-    if (scrollPercent < 0.26) {
-      sub5.style.opacity = '0';
-    } else {
-      sub5.style.opacity = '1';
-      sub5.style.transition = 'all .5s linear';
-    }
-
-    if (scrollPercent < 0.3) {
-      sub6.style.opacity = '0';
-    } else {
-      sub6.style.opacity = '1';
-      sub6.style.transition = 'all .5s linear';
+      sub3.style.transform = 'perspective(300px) translateZ(0px)';
     }
   }
 
@@ -95,31 +74,20 @@ const Section1 = ({ scrollPercent }: Props) => {
       <div className="stikcy-container">
         <div className="main-title">
           <div className="main-text">LE5</div>
-          <div className="sub-text">업사이클링 프로젝트</div>
         </div>
         <div className="image-container">
           <ChangableImage image={`/public/background${imageNumber}.jpg`} />
         </div>
-        <div className="sub-title sub1" ref={sub1Ref}>
-          쓸모를 다해 버려진 물건
-          <br />
-          다시 사용할 수 없을까?
-        </div>
-        <div className="sub-title sub2" ref={sub2Ref}>
-          몇년째 자리를 지키고 있는 버려진 변기에 꽃을 심으면 예쁠 것 같단 생각이 들었다
-        </div>
-        <div className="sub-title sub3" ref={sub3Ref}>
-          일회용컵 낭비를 막기위해 텀블러 사용이 권장되고 있다. 그런데 여기저기서 텀블러를
-          마구 만들어내고 있다. 일회용컵 아끼려다 텀블러 낭비가 시작되어버린 것 같다
-        </div>
-        <div className="sub-title sub4" ref={sub4Ref}>
-          우주에도 쓰레기가 많다던데
-        </div>
-        <div className="sub-title sub5" ref={sub5Ref}>
-          과자 이중삼중포장하지말고 양이나 많이 넣어라
-        </div>
-        <div className="sub-title sub6" ref={sub6Ref}>
-          오늘도 쓰레기를 버린다
+        <div className="sub-title">
+          <div className="sub sub1" ref={sub1Ref}>
+            업
+          </div>
+          <div className="sub sub2" ref={sub2Ref}>
+            사이클링&nbsp;
+          </div>
+          <div className="sub sub3" ref={sub3Ref}>
+            프로젝트
+          </div>
         </div>
       </div>
     </Section>
