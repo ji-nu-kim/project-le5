@@ -259,8 +259,8 @@ const Section2 = ({ scrollPercent }: Props) => {
         </svg>
         <p ref={part3TextRef} className="description part3-text">
           죽음을 의미하는 버려진 캔과 삶을 의미하는 식물. 버려진 캔은 식물을 만나 생명이
-          살아 숨 쉴 수 있는 보금자리가 되어주었고 식물은 버려진 캔을 만나 비로소 살아갈
-          수 있는 희망을 얻었습니다. 모두에게 <span>새로운</span> 삶의 시작입니다.
+          살아 숨 쉴 수 있는 보금자리가 되어주었고 식물은 버려진 캔을 만나{' '}
+          <span>새로운</span> 삶의 터전을 얻었습니다.
         </p>
       </div>
 

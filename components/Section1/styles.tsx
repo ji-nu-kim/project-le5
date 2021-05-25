@@ -22,45 +22,76 @@ export const Section = styled.section`
     left: 0;
 
     .main-title,
-    .sub-title,
-    .footer-title {
+    .sub-title {
       position: absolute;
       color: #ffffff;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-      z-index: 10;
     }
 
     .main-title {
-      top: 4px;
-      left: 1rem;
-      align-self: center;
-      font-weight: bold;
-      font-size: 2rem;
-      font-family: 'Rubik', sans-serif;
-    }
-
-    .sub-title {
-      font-weight: bold;
-      font-size: 1.5rem;
+      z-index: 10;
+      text-align: center;
       top: 50%;
-      transform: translateY(-50%);
-      letter-spacing: 1px;
-      word-spacing: 4px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+      font-family: 'Rubik', sans-serif;
 
-      .sub1,
-      .sub2,
-      .sub3 {
-        opacity: 0;
+      .main-text {
+        font-size: 5rem;
+      }
+      .sub-text {
+        font-size: 1.2rem;
       }
     }
 
-    .footer-title {
-      bottom: 4px;
-      right: 1rem;
-      justify-self: end;
-      font-size: 1.25rem;
-      align-self: center;
-      font-family: 'Rubik', sans-serif;
+    .sub-title {
+      z-index: 5;
+      padding: 1rem;
+      opacity: 0;
+      font-weight: bold;
+      font-size: 1rem;
+      max-width: 250px;
+      text-align: justify;
+    }
+
+    .sub1 {
+      background: rgba(0, 0, 0, 0.4);
+      top: 5%;
+      left: 5%;
+    }
+
+    .sub2 {
+      background: rgba(0, 60, 255, 0.4);
+      top: 25%;
+      left: 30%;
+    }
+
+    .sub3 {
+      background: rgba(255, 51, 0, 0.4);
+      top: 80%;
+      left: 15%;
+    }
+
+    .sub4 {
+      background: rgba(94, 255, 0, 0.4);
+      top: 12%;
+      left: 35%;
+      transform: rotate(-10deg);
+    }
+
+    .sub5 {
+      background: rgba(255, 238, 0, 0.4);
+      top: 40%;
+      left: 10%;
+      transform: rotate(10deg);
+    }
+
+    .sub6 {
+      background: rgba(212, 0, 255, 0.4);
+      top: 65%;
+      left: 40%;
+      transform: rotate(-25deg);
     }
 
     .image-container {
@@ -73,7 +104,26 @@ export const Section = styled.section`
 
     @media (min-width: 768px) {
       .sub-title {
-        font-size: 2.5rem;
+        font-size: 1.25rem;
+        max-width: 300px;
+      }
+      .sub2 {
+        top: 20%;
+        left: 35%;
+      }
+
+      .sub3 {
+        top: 70%;
+        left: 20%;
+      }
+
+      .sub4 {
+        top: 5%;
+        left: 55%;
+      }
+
+      .sub6 {
+        left: 65%;
       }
     }
   }
@@ -82,7 +132,8 @@ export const Section = styled.section`
 export const ChangableImage = styled.div`
   width: 100%;
   height: 100%;
-  background: url(${(props: IBackgroundImage) => props.image});
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(${(props: IBackgroundImage) => props.image});
   background-size: cover;
   background-position: center;
   filter: saturate(180%);
