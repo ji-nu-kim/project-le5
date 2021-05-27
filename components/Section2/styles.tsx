@@ -216,9 +216,24 @@ export const Section = styled.section`
       );
     }
   }
+  @media (min-width: 1240px) {
+    padding: 0 15vw;
+  }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1400px) {
+    padding: 0 20vw;
+  }
+
+  @media (min-width: 1640px) {
+    padding: 0 23vw;
+  }
+
+  @media (min-width: 1740px) {
     padding: 0 25vw;
+  }
+
+  @media (min-width: 1840px) {
+    padding: 0 27vw;
   }
 
   @media (min-width: 1024px) and (min-height: 1360px) {

@@ -83,12 +83,8 @@ export const Section = styled.section`
     @media (min-width: 1024px) {
       .main-title {
         .main-text {
-          font-size: 15rem;
+          font-size: 12rem;
         }
-      }
-      .sub-title {
-        top: 65%;
-        font-size: 2.5rem;
       }
     }
     @media (min-width: 1024px) and (min-height: 1360px) {
