@@ -32,14 +32,14 @@ const Section3 = ({ scrollPercent, scrollPercent2, currentY }: Props) => {
 
   return (
     <Section>
-      <div className="relative-container" ref={sticky2Ref}>
+      {/* <div className="relative-container" ref={sticky2Ref}>
         <h1>스티키2에요</h1>
         <p>이동시켜보세요</p>
       </div>
       <div className="sticky-container" ref={sticky1Ref}>
         <h1>스티키에요</h1>
         <p>이동시켜보세요</p>
-      </div>
+      </div> */}
     </Section>
   );
 };

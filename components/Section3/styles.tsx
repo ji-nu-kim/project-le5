@@ -4,7 +4,7 @@ export const Section = styled.div`
   position: relative;
   height: 600vh;
   width: 100vw;
-  border: 1px solid coral;
+  border: 3px solid #000;
 
   h1,
   p {

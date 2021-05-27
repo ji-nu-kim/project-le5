@@ -14,58 +14,61 @@ export const Section = styled.section`
   }
 
   svg {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
+
     path {
       stroke: #fff;
       fill: #fff;
-      stroke-width: 3;
+      stroke-width: 1;
       stroke-linecap: round;
       stroke-linejoin: round;
       transition: all 0.5s linear;
     }
   }
 
-  .description {
-    font-size: 0.85rem;
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 0.3s linear;
-    max-width: 250px;
-    text-align: justify;
-    color: #333;
-    margin-left: 25px;
-
-    span {
-      font-size: 1rem;
-      font-weight: bold;
-    }
-  }
-
   .part {
-    margin-top: 150px;
-    .part-title {
-      margin-bottom: 50px;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 25% 60% 15%;
+    align-items: center;
+    justify-items: center;
+
+    .part-header {
+      align-self: flex-end;
+      text-align: center;
+      .part-main-title {
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      .part-sub-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #888;
+      }
     }
-    .part-main-title {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    .part-sub-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #888;
+    .description {
+      align-self: flex-start;
+      margin: 0 auto;
+      font-size: 0.7rem;
+      visibility: hidden;
+      opacity: 0;
+      max-width: 70%;
+      text-align: justify;
+      color: #333;
+
+      span {
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
     }
   }
 
   .part1 {
-    margin-top: 200px;
     .part1-main-title {
       color: #a9db4c;
-    }
-    .part1-svg {
-      transform: rotateZ(-5deg);
     }
     .part1-description {
       span {
@@ -75,11 +78,10 @@ export const Section = styled.section`
   }
 
   .part2 {
+    svg {
+    }
     .part2-main-title {
       color: #f06f02;
-    }
-    .part2-svg {
-      transform: rotateZ(5deg);
     }
     .part2-text {
       span {
@@ -110,59 +112,60 @@ export const Section = styled.section`
     }
   }
 
-  @media (min-width: 768px) {
-    svg {
-      width: 400px;
-      height: 400px;
-    }
-
-    .description {
-      font-size: 1rem;
-      max-width: 300px;
-      margin-left: 50px;
-
-      span {
-        font-size: 1.25rem;
-      }
-    }
-
+  @media (min-width: 548px) {
     .part {
-      margin-top: 200px;
-      .part-main-title {
-        font-size: 4rem;
+      .part-header {
+        padding-bottom: 1rem;
       }
-      .part-sub-title {
-        font-size: 2rem;
+      .description {
+        align-self: center;
+        font-size: 0.8rem;
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .part {
+      .description {
+        max-width: 60%;
+      }
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .part {
+      .part-header {
+        .part-main-title {
+          font-size: 4rem;
+        }
+        .part-sub-title {
+          font-size: 2rem;
+        }
+      }
+      .description {
+        font-size: 0.9rem;
+        span {
+          font-size: 1.1rem;
+        }
       }
     }
   }
 
   @media (min-width: 1100px) {
-    display: block;
-    padding: 0 10vw;
-
     svg {
-      width: 500px;
-      height: 500px;
+      width: 70%;
     }
+  }
 
-    .description {
-      mix-blend-mode: multiply;
-      font-size: 1rem;
-      max-width: 400px;
-      margin-left: 50px;
-
-      span {
-        font-size: 1.25rem;
-      }
+  @media (min-width: 1440px) {
+    svg {
+      width: 60%;
     }
-
     .part {
-      border-radius: 50%;
-      margin-top: 150px;
-
-      .part-title {
-        mix-blend-mode: multiply;
+      .part-header {
         .part-main-title {
           font-size: 4.5rem;
         }
@@ -170,95 +173,23 @@ export const Section = styled.section`
           font-size: 2.5rem;
         }
       }
-    }
-
-    .part2,
-    .part4 {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: end;
       .description {
-        margin-right: 50px;
+        font-size: 1rem;
+        span {
+          font-size: 1.2rem;
+        }
+        max-width: 50%;
       }
     }
-
-    .part1 {
-      background: linear-gradient(
-        150deg,
-        rgba(238, 156, 167, 0.8),
-        rgba(255, 221, 225, 0.8)
-      );
-    }
-
-    .part2 {
-      background: linear-gradient(
-        150deg,
-        rgba(41, 128, 185, 0.8),
-        rgba(109, 213, 250, 0.8),
-        rgba(255, 255, 255, 0.8)
-      );
-    }
-
-    .part3 {
-      background: linear-gradient(
-        150deg,
-        rgba(247, 255, 0, 0.8),
-        rgba(219, 54, 164, 0.8)
-      );
-    }
-
-    .part4 {
-      background: linear-gradient(
-        150deg,
-        rgba(168, 255, 120, 0.8),
-        rgba(120, 255, 214, 0.8)
-      );
-    }
-  }
-  @media (min-width: 1240px) {
-    padding: 0 15vw;
-  }
-
-  @media (min-width: 1400px) {
-    padding: 0 20vw;
-  }
-
-  @media (min-width: 1640px) {
-    padding: 0 23vw;
   }
 
   @media (min-width: 1740px) {
-    padding: 0 25vw;
-  }
-
-  @media (min-width: 1840px) {
-    padding: 0 27vw;
-  }
-
-  @media (min-width: 1024px) and (min-height: 1360px) {
     svg {
-      width: 600px;
-      height: 600px;
+      width: 50%;
     }
-
-    .description {
-      font-size: 1.25rem;
-      max-width: 500px;
-      margin-left: 50px;
-
-      span {
-        font-size: 1.5rem;
-      }
-    }
-
     .part {
-      margin-top: 300px;
-      .part-main-title {
-        font-size: 5rem;
-      }
-      .part-sub-title {
-        font-size: 3rem;
+      .description {
+        max-width: 40%;
       }
     }
   }

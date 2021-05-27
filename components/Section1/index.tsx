@@ -72,22 +72,24 @@ const Section1 = ({ scrollPercent }: Props) => {
   return (
     <Section>
       <div className="stikcy-container">
-        <div className="main-title">
-          <div className="main-text">LE5</div>
+        <div className="title-container">
+          <div className="main-title">
+            <div className="main-text">LE5</div>
+          </div>
+          <div className="sub-title">
+            <div className="sub " ref={sub1Ref}>
+              업
+            </div>
+            <div className="sub " ref={sub2Ref}>
+              사이클링&nbsp;
+            </div>
+            <div className="sub " ref={sub3Ref}>
+              프로젝트
+            </div>
+          </div>
         </div>
         <div className="image-container">
           <ChangableImage image={`/public/background${imageNumber}.jpg`} />
-        </div>
-        <div className="sub-title">
-          <div className="sub sub1" ref={sub1Ref}>
-            업
-          </div>
-          <div className="sub sub2" ref={sub2Ref}>
-            사이클링&nbsp;
-          </div>
-          <div className="sub sub3" ref={sub3Ref}>
-            프로젝트
-          </div>
         </div>
       </div>
     </Section>

@@ -4,6 +4,16 @@ interface IBackgroundImage {
   image: string;
 }
 
+export const ChangableImage = styled.div`
+  width: 100%;
+  height: 100%;
+  background: url(${(props: IBackgroundImage) => props.image});
+  background-size: cover;
+  background-position: center;
+  filter: saturate(180%);
+  transition: all 0.5s linear;
+`;
+
 export const Section = styled.section`
   font-family: 'Noto Sans KR', sans-serif;
   height: 500vh;
@@ -21,46 +31,35 @@ export const Section = styled.section`
     top: 0;
     left: 0;
 
-    .main-title,
-    .sub-title {
+    .title-container {
       position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
       color: #ffffff;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     }
 
     .main-title {
-      z-index: 10;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       font-weight: bold;
       font-family: 'Rubik', sans-serif;
-
       .main-text {
         font-size: 6rem;
       }
     }
 
     .sub-title {
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 20;
       font-weight: bold;
       font-size: 1.25rem;
       display: flex;
       align-items: center;
     }
 
-    .sub1 {
-      transform: perspective(300px) translateZ(300px);
-    }
-
-    .sub2 {
-      transform: perspective(300px) translateZ(300px);
-    }
-
-    .sub3 {
+    .sub {
       transform: perspective(300px) translateZ(300px);
     }
 
@@ -94,14 +93,4 @@ export const Section = styled.section`
       }
     }
   }
-`;
-
-export const ChangableImage = styled.div`
-  width: 100%;
-  height: 100%;
-  background: url(${(props: IBackgroundImage) => props.image});
-  background-size: cover;
-  background-position: center;
-  filter: saturate(180%);
-  transition: all 0.5s linear;
 `;
