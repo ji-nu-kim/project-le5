@@ -15,7 +15,6 @@ export const ChangableImage = styled.div`
 `;
 
 export const Section = styled.section`
-  font-family: 'Noto Sans KR', sans-serif;
   height: 500vh;
 
   h1,

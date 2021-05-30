@@ -11,12 +11,10 @@ const Section2 = ({ scrollPercent }: Props) => {
   const part1Path = part1PathRef.current;
   const part1TextRef = useRef<HTMLParagraphElement>(null);
   const part1Text = part1TextRef.current;
-
   const part2PathRef = useRef<SVGPathElement>(null);
   const part2Path = part2PathRef.current;
   const part2TextRef = useRef<HTMLParagraphElement>(null);
   const part2Text = part2TextRef.current;
-
   const part3PathRef = useRef<SVGPathElement>(null);
   const part3Path = part3PathRef.current;
   const part3TextRef = useRef<HTMLParagraphElement>(null);

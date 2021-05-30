@@ -33,11 +33,7 @@ const Main = () => {
     <>
       <Section1 scrollPercent={scrollPercent} />
       <Section2 scrollPercent={scrollPercent} />
-      <Section3
-        scrollPercent={scrollPercent}
-        currentY={currentY}
-        scrollPercent2={scrollPercent2}
-      />
+      <Section3 scrollPercent2={scrollPercent2} />
     </>
   );
 };

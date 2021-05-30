@@ -5,7 +5,6 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Noto Sans KR', sans-serif;
 
   h1,
   p {
@@ -51,7 +50,6 @@ export const Section = styled.section`
     }
     .description {
       align-self: flex-start;
-      margin: 0 auto;
       font-size: 0.7rem;
       visibility: hidden;
       opacity: 0;
@@ -118,7 +116,7 @@ export const Section = styled.section`
         padding-bottom: 1rem;
       }
       .description {
-        align-self: center;
+        padding-top: 1rem;
         font-size: 0.8rem;
         span {
           font-size: 1rem;
@@ -129,6 +127,9 @@ export const Section = styled.section`
 
   @media (min-width: 768px) {
     .part {
+      svg {
+        width: 80%;
+      }
       .description {
         max-width: 60%;
       }
@@ -137,6 +138,32 @@ export const Section = styled.section`
 
   @media (min-width: 1024px) {
     .part {
+      svg {
+        width: 70%;
+      }
+      .part-header {
+        .part-main-title {
+          font-size: 3.5rem;
+        }
+        .part-sub-title {
+          font-size: 1.75rem;
+        }
+      }
+      .description {
+        max-width: 50%;
+        font-size: 0.9rem;
+        span {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .part {
+      svg {
+        width: 60%;
+      }
       .part-header {
         .part-main-title {
           font-size: 4rem;
@@ -146,50 +173,18 @@ export const Section = styled.section`
         }
       }
       .description {
-        font-size: 0.9rem;
-        span {
-          font-size: 1.1rem;
-        }
-      }
-    }
-  }
-
-  @media (min-width: 1100px) {
-    svg {
-      width: 70%;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    svg {
-      width: 60%;
-    }
-    .part {
-      .part-header {
-        .part-main-title {
-          font-size: 4.5rem;
-        }
-        .part-sub-title {
-          font-size: 2.5rem;
-        }
-      }
-      .description {
-        font-size: 1rem;
-        span {
-          font-size: 1.2rem;
-        }
-        max-width: 50%;
+        max-width: 40%;
       }
     }
   }
 
   @media (min-width: 1740px) {
-    svg {
-      width: 50%;
-    }
     .part {
+      svg {
+        width: 50%;
+      }
       .description {
-        max-width: 40%;
+        max-width: 30%;
       }
     }
   }
