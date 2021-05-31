@@ -7,12 +7,6 @@ export const Section = styled.div`
   display: flex;
   flex-direction: column;
 
-  h1,
-  p {
-    margin: 0;
-    padding: 0;
-  }
-
   .sticky-outer {
     position: relative;
     width: 100vw;
@@ -81,8 +75,16 @@ export const Section = styled.div`
       justify-self: center;
       transition: all 0.5s linear;
     }
+  }
 
-    @media (min-width: 768px) {
+  .footer-text {
+    font-weight: bold;
+    text-align: center;
+    color: #60a66b;
+  }
+
+  @media (min-width: 768px) {
+    .sticky-outer {
       .sticky-title {
         font-size: 3rem;
         padding-bottom: 0;
@@ -97,13 +99,17 @@ export const Section = styled.div`
         max-width: 300px;
       }
     }
-    @media (min-width: 1024px) {
+  }
+  @media (min-width: 1024px) {
+    .sticky-outer {
       .sticky-title {
         font-size: 3.5rem;
       }
     }
+  }
 
-    @media (min-width: 1440px) {
+  @media (min-width: 1440px) {
+    .sticky-outer {
       .sticky-inner {
         .sticky-elem {
           width: 50vw;

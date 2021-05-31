@@ -27,8 +27,6 @@ const Section3 = ({ scrollPercent2 }: Props) => {
   const description3Ref = useRef<HTMLDivElement>(null);
   const description3 = description3Ref.current;
 
-  console.log(scrollPercent2);
-
   if (
     title1 &&
     title2 &&
@@ -163,6 +161,8 @@ const Section3 = ({ scrollPercent2 }: Props) => {
           멋진 화분이 되었습니다.
         </div>
       </div>
+
+      <div className="footer-text">2015.05.03 프로젝트 LE5</div>
     </Section>
   );
 };

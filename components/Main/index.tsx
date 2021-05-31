@@ -9,6 +9,7 @@ const Main = () => {
   const [height, setHeight] = useState(window.innerHeight);
   const [scroll, setScroll] = useState<number[]>([]);
   const [currentY, scrollPercent, scrollPercent2] = scroll;
+
   const scrollHandler = useCallback(() => {
     setScroll(scrollCalculate(window.scrollY, height));
   }, [height, scroll]);

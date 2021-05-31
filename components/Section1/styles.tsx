@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 interface IBackgroundImage {
   image: string;
@@ -10,7 +10,7 @@ export const ChangableImage = styled.div`
   background: url(${(props: IBackgroundImage) => props.image});
   background-size: cover;
   background-position: center;
-  filter: saturate(180%);
+  filter: saturate(180%) contrast(70%);
   transition: all 0.5s linear;
 `;
 
@@ -30,36 +30,65 @@ export const Section = styled.section`
     top: 0;
     left: 0;
 
+    .logo {
+      z-index: 10;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #fff;
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+    }
+
     .title-container {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 10%;
+      transform: translateY(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
       z-index: 10;
       color: #ffffff;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-    }
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
 
-    .main-title {
-      font-weight: bold;
-      font-family: 'Rubik', sans-serif;
-      .main-text {
-        font-size: 6rem;
+      .main-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+
+        .main-text-point1,
+        .main-text-point2 {
+          position: relative;
+          color: #60a66b;
+          opacity: 0;
+          transition: all 0.5s linear;
+        }
+
+        .main-text-point1 {
+          ::after {
+            content: '쓰레기';
+          }
+        }
+        .main-text-point2 {
+          ::after {
+            content: '물건';
+          }
+        }
       }
-    }
 
-    .sub-title {
-      font-weight: bold;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-    }
+      .sub-title {
+        font-size: 0.9rem;
+        display: flex;
+        margin-top: 0.5rem;
 
-    .sub {
-      transform: perspective(300px) translateZ(300px);
+        .sub-text-point {
+          transform: perspective(300px) translateZ(300px);
+          transition: all 0.2s ease-in;
+        }
+      }
     }
 
     .image-container {
@@ -68,27 +97,31 @@ export const Section = styled.section`
     }
 
     @media (min-width: 768px) {
-      .main-title {
-        .main-text {
-          font-size: 10rem;
+      .title-container {
+        left: 20%;
+        .main-title {
+          font-size: 2rem;
         }
-      }
-      .sub-title {
-        font-size: 1.5rem;
+        .sub-title {
+          font-size: 1rem;
+        }
       }
     }
 
-    @media (min-width: 1024px) {
-      .main-title {
-        .main-text {
-          font-size: 12rem;
-        }
+    @media (min-width: 1440px) {
+      .logo {
+        font-size: 1.5rem;
       }
-    }
-    @media (min-width: 1024px) and (min-height: 1360px) {
-      .sub-title {
-        top: 60%;
-        font-size: 2.5rem;
+
+      .title-container {
+        left: 30%;
+        .main-title {
+          font-size: 2.5rem;
+          line-height: 3rem;
+        }
+        .sub-title {
+          font-size: 1.25rem;
+        }
       }
     }
   }
