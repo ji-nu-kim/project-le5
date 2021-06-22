@@ -7,16 +7,15 @@ import scrollCalculate from '@utils/scrollCalculate';
 
 const Main = () => {
   const [height, setHeight] = useState(window.innerHeight);
-  const [scroll, setScroll] = useState<number[]>([]);
-  const [currentY, scrollPercent, scrollPercent2] = scroll;
+  const [scroll, setScroll] = useState<number>(0);
 
   const scrollHandler = useCallback(() => {
     setScroll(scrollCalculate(window.scrollY, height));
-  }, [height, scroll]);
+  }, [height]);
 
   const resizeHandler = useCallback(() => {
     setHeight(window.innerHeight);
-  }, [height]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('load', resizeHandler);
@@ -32,9 +31,9 @@ const Main = () => {
 
   return (
     <>
-      <Section1 scrollPercent={scrollPercent} />
-      <Section2 scrollPercent={scrollPercent} />
-      <Section3 scrollPercent2={scrollPercent2} />
+      <Section1 scrollPercent={scroll} />
+      <Section2 scrollPercent={scroll} />
+      <Section3 scrollPercent2={scroll} />
     </>
   );
 };

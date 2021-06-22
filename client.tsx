@@ -2,6 +2,8 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import React from 'react';
 import { render } from 'react-dom';
 

@@ -11,10 +11,8 @@
     "resolveJsonModule": true, // JSON파일 import허용
     "baseUrl": ".", // ../../../hello.js 경로를 pages/hello.js로 단축시켜줌
     "paths": {
-      "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
-      "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"]
     }
   }

@@ -1,3 +1,4 @@
+import scrollValue from '@utils/scrollValue';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { ChangableImage, Section } from './styles';
 
@@ -22,21 +23,18 @@ const Section1 = ({ scrollPercent }: Props) => {
   const sub4 = sub4Ref.current;
 
   if (main1 && main2 && sub1 && sub2 && sub3 && sub4) {
-    // if (scrollPercent < 0.45) {
-    //   sub1.style.visibility = 'visible';
-    //   sub2.style.visibility = 'visible';
-    //   sub3.style.visibility = 'visible';
-    //   sub4.style.visibility = 'visible';
-    //   sub5.style.visibility = 'visible';
-    // } else {
-    //   sub1.style.visibility = 'hidden';
-    //   sub2.style.visibility = 'hidden';
-    //   sub3.style.visibility = 'hidden';
-    //   sub4.style.visibility = 'hidden';
-    //   sub5.style.visibility = 'hidden';
-    // }
+    if (scrollPercent < 0.45) {
+      sub1.style.visibility = 'visible';
+      sub2.style.visibility = 'visible';
+      sub3.style.visibility = 'visible';
+      sub4.style.visibility = 'visible';
+    } else {
+      sub1.style.visibility = 'hidden';
+      sub2.style.visibility = 'hidden';
+      sub3.style.visibility = 'hidden';
+      sub4.style.visibility = 'hidden';
+    }
 
-    console.log(scrollPercent);
     if (scrollPercent < 0.1) {
       main1.style.opacity = '0';
     } else {
@@ -48,15 +46,18 @@ const Section1 = ({ scrollPercent }: Props) => {
     } else {
       main2.style.opacity = '1';
     }
-
     const sub1Start = 0.15;
     const sub1End = 0.2;
     if (scrollPercent <= sub1Start) {
       sub1.style.transform = 'perspective(300px) translateZ(300px)';
     } else if (scrollPercent > sub1Start && scrollPercent <= sub1End) {
-      sub1.style.transform = `perspective(300px) translateZ(${
-        300 - (scrollPercent - sub1Start) * 2000
-      }px)`;
+      sub1.style.transform = `perspective(300px) translateZ(${scrollValue(
+        300,
+        sub1Start,
+        scrollPercent,
+        2000,
+        true,
+      )}px)`;
     } else if (scrollPercent > sub1End) {
       sub1.style.transform = 'perspective(300px) translateZ(0px)';
     }
@@ -66,9 +67,13 @@ const Section1 = ({ scrollPercent }: Props) => {
     if (scrollPercent <= sub2Start) {
       sub2.style.transform = 'perspective(300px) translateZ(300px)';
     } else if (scrollPercent > sub2Start && scrollPercent <= sub2End) {
-      sub2.style.transform = `perspective(300px) translateZ(${
-        300 - (scrollPercent - sub2Start) * 2000
-      }px)`;
+      sub2.style.transform = `perspective(300px) translateZ(${scrollValue(
+        300,
+        sub2Start,
+        scrollPercent,
+        2000,
+        true,
+      )}px)`;
     } else if (scrollPercent > sub2End) {
       sub2.style.transform = 'perspective(300px) translateZ(0px)';
     }
@@ -78,9 +83,13 @@ const Section1 = ({ scrollPercent }: Props) => {
     if (scrollPercent <= sub3Start) {
       sub3.style.transform = 'perspective(300px) translateZ(300px)';
     } else if (scrollPercent > sub3Start && scrollPercent <= sub3End) {
-      sub3.style.transform = `perspective(300px) translateZ(${
-        300 - (scrollPercent - sub3Start) * 2000
-      }px)`;
+      sub3.style.transform = `perspective(300px) translateZ(${scrollValue(
+        300,
+        sub3Start,
+        scrollPercent,
+        2000,
+        true,
+      )}px)`;
     } else if (scrollPercent > sub3End) {
       sub3.style.transform = 'perspective(300px) translateZ(0px)';
     }
@@ -90,9 +99,13 @@ const Section1 = ({ scrollPercent }: Props) => {
     if (scrollPercent <= sub4Start) {
       sub4.style.transform = 'perspective(300px) translateZ(300px)';
     } else if (scrollPercent > sub4Start && scrollPercent <= sub4End) {
-      sub4.style.transform = `perspective(300px) translateZ(${
-        300 - (scrollPercent - sub4Start) * 2000
-      }px)`;
+      sub4.style.transform = `perspective(300px) translateZ(${scrollValue(
+        300,
+        sub4Start,
+        scrollPercent,
+        2000,
+        true,
+      )}px)`;
     } else if (scrollPercent > sub4End) {
       sub4.style.transform = 'perspective(300px) translateZ(0px)';
     }

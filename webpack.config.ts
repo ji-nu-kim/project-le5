@@ -1,12 +1,17 @@
 import path from 'path';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import webpack from 'webpack';
+import webpack, { Configuration as WebpackConfiguration } from 'webpack';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration;
+}
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   name: 'le5',
   mode: isDevelopment ? 'development' : 'production',
   devtool: !isDevelopment ? 'hidden-source-map' : 'inline-source-map',
@@ -15,17 +20,15 @@ const config: webpack.Configuration = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     // tsconfig 경로설정
     alias: {
-      '@hooks': path.resolve(__dirname, 'hooks'),
       '@components': path.resolve(__dirname, 'components'),
       '@layouts': path.resolve(__dirname, 'layouts'),
-      '@pages': path.resolve(__dirname, 'pages'),
       '@utils': path.resolve(__dirname, 'utils'),
-      '@typings': path.resolve(__dirname, 'typings'),
     },
   },
   entry: {
     app: './client',
   },
+  target: ['web', 'es5'],
   module: {
     rules: [
       {
@@ -36,7 +39,7 @@ const config: webpack.Configuration = {
             [
               '@babel/preset-env',
               {
-                targets: { browsers: ['last 2 chrome versions'] },
+                targets: { browsers: ['IE 10'] },
                 debug: isDevelopment,
               },
             ],
@@ -55,7 +58,6 @@ const config: webpack.Configuration = {
             },
           },
         },
-        exclude: path.join(__dirname, 'node_modules'),
       },
       {
         test: /\.css?$/,
@@ -68,9 +70,9 @@ const config: webpack.Configuration = {
     // 이 플러그인을 적용하면 타입스크립트 검사와 웹팩 체킹이 동시에 된다
     new ForkTsCheckerWebpackPlugin({
       async: false,
-      eslint: {
-        files: './src/**/*',
-      },
+      // eslint: {
+      //   files: './src/**/*',
+      // },
     }),
     // 리엑트에서 NODE_ENV를 사용할 수 있게 해줌(원래는 백엔드만)
     new webpack.EnvironmentPlugin({
@@ -87,17 +89,28 @@ const config: webpack.Configuration = {
     historyApiFallback: true, // 1.라우팅을 해준다
     port: 3090,
     publicPath: '/dist/', // 2. 핫리로딩
+    proxy: {
+      '/api/': {
+        target: 'http://localhost:3095',
+        changeOrigin: true,
+        ws: true,
+      },
+    },
   },
 };
 
 if (isDevelopment && config.plugins) {
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
-  config.plugins.push(new ReactRefreshWebpackPlugin());
-  // config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'server', openAnalyzer: true }));
+  config.plugins.push(
+    new ReactRefreshWebpackPlugin({ overlay: { useURLPolyfill: true } }),
+  );
+  config.plugins.push(
+    new BundleAnalyzerPlugin({ analyzerMode: 'server', openAnalyzer: false }),
+  );
 }
 if (!isDevelopment && config.plugins) {
   config.plugins.push(new webpack.LoaderOptionsPlugin({ minimize: true }));
-  // config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }));
+  config.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'static' }));
 }
 
 export default config;

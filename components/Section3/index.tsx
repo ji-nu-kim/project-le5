@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Section } from './styles';
+import scrollValue from '@utils/scrollValue';
 
 interface Props {
   scrollPercent2: number;
@@ -43,7 +44,7 @@ const Section3 = ({ scrollPercent2 }: Props) => {
     if (scrollPercent2 <= title1Start) {
       title1.style.opacity = '0';
     } else if (scrollPercent2 > title1Start && scrollPercent2 <= title1End) {
-      title1.style.opacity = `${0 + (scrollPercent2 - title1Start) * 50}`;
+      title1.style.opacity = `${scrollValue(0, title1Start, scrollPercent2, 50)}`;
     } else if (scrollPercent2 > title1End) {
       title1.style.opacity = '1';
     }
@@ -53,8 +54,13 @@ const Section3 = ({ scrollPercent2 }: Props) => {
       sticky1.style.opacity = '0.5';
       sticky1.style.transform = 'scale(0.8)';
     } else if (scrollPercent2 > sticky1Start && scrollPercent2 <= sticky1End) {
-      sticky1.style.opacity = `${0.5 + (scrollPercent2 - sticky1Start) * 10}`;
-      sticky1.style.transform = `scale(${0.8 + (scrollPercent2 - sticky1Start) * 4})`;
+      sticky1.style.opacity = `${scrollValue(0.5, sticky1Start, scrollPercent2, 10)}`;
+      sticky1.style.transform = `scale(${scrollValue(
+        0.8,
+        sticky1Start,
+        scrollPercent2,
+        4,
+      )})`;
     } else if (scrollPercent2 > sticky1End) {
       sticky1.style.opacity = '1';
       sticky1.style.transform = 'scale(1)';
@@ -70,7 +76,7 @@ const Section3 = ({ scrollPercent2 }: Props) => {
     if (scrollPercent2 <= title2Start) {
       title2.style.opacity = '0';
     } else if (scrollPercent2 > title2Start && scrollPercent2 <= title2End) {
-      title2.style.opacity = `${0 + (scrollPercent2 - title2Start) * 50}`;
+      title2.style.opacity = `${scrollValue(0, title2Start, scrollPercent2, 50)}`;
     } else if (scrollPercent2 > title2End) {
       title2.style.opacity = '1';
     }
@@ -80,8 +86,13 @@ const Section3 = ({ scrollPercent2 }: Props) => {
       sticky2.style.opacity = '0.5';
       sticky2.style.transform = 'scale(0.8)';
     } else if (scrollPercent2 > sticky2Start && scrollPercent2 <= sticky2End) {
-      sticky2.style.opacity = `${0.5 + (scrollPercent2 - sticky2Start) * 10}`;
-      sticky2.style.transform = `scale(${0.8 + (scrollPercent2 - sticky2Start) * 4})`;
+      sticky2.style.opacity = `${scrollValue(0.5, sticky2Start, scrollPercent2, 10)}`;
+      sticky2.style.transform = `scale(${scrollValue(
+        0.8,
+        sticky2Start,
+        scrollPercent2,
+        4,
+      )})`;
     } else if (scrollPercent2 > sticky2End) {
       sticky2.style.opacity = '1';
       sticky2.style.transform = 'scale(1)';
@@ -97,7 +108,7 @@ const Section3 = ({ scrollPercent2 }: Props) => {
     if (scrollPercent2 <= title3Start) {
       title3.style.opacity = '0';
     } else if (scrollPercent2 > title3Start && scrollPercent2 <= title3End) {
-      title3.style.opacity = `${0 + (scrollPercent2 - title3Start) * 50}`;
+      title3.style.opacity = `${scrollValue(0, title3Start, scrollPercent2, 50)}`;
     } else if (scrollPercent2 > title3End) {
       title3.style.opacity = '1';
     }
@@ -107,8 +118,13 @@ const Section3 = ({ scrollPercent2 }: Props) => {
       sticky3.style.opacity = '0.5';
       sticky3.style.transform = 'scale(0.8)';
     } else if (scrollPercent2 > sticky3Start && scrollPercent2 <= sticky3End) {
-      sticky3.style.opacity = `${0.5 + (scrollPercent2 - sticky3Start) * 10}`;
-      sticky3.style.transform = `scale(${0.8 + (scrollPercent2 - sticky3Start) * 4})`;
+      sticky3.style.opacity = `${scrollValue(0.5, sticky3Start, scrollPercent2, 10)}`;
+      sticky3.style.transform = `scale(${scrollValue(
+        0.8,
+        sticky3Start,
+        scrollPercent2,
+        4,
+      )})`;
     } else if (scrollPercent2 > sticky3End) {
       sticky3.style.opacity = '1';
       sticky3.style.transform = 'scale(1)';

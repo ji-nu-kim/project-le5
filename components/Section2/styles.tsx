@@ -22,7 +22,7 @@ export const Section = styled.section`
       stroke-width: 1;
       stroke-linecap: round;
       stroke-linejoin: round;
-      transition: all 0.5s linear;
+      transition: all 0.7s linear;
     }
   }
 
@@ -49,6 +49,7 @@ export const Section = styled.section`
       }
     }
     .description {
+      transition: all 0.7s linear;
       align-self: flex-start;
       font-size: 0.7rem;
       visibility: hidden;
@@ -76,8 +77,6 @@ export const Section = styled.section`
   }
 
   .part2 {
-    svg {
-    }
     .part2-main-title {
       color: #f06f02;
     }

@@ -1,12 +1,12 @@
 import { centerHeight } from '@utils/centerHeight';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Section } from './styles';
 
 interface Props {
   scrollPercent: number;
 }
 
-const Section2 = ({ scrollPercent }: Props) => {
+function Section2({ scrollPercent }: Props) {
   const part1PathRef = useRef<SVGPathElement>(null);
   const part1Path = part1PathRef.current;
   const part1TextRef = useRef<HTMLParagraphElement>(null);
@@ -79,14 +79,11 @@ const Section2 = ({ scrollPercent }: Props) => {
     const part2Trigger = centerHeight(svg2, window.innerHeight / 2);
     const part3Trigger = centerHeight(svg3, window.innerHeight / 2);
     const part4Trigger = centerHeight(svg4, window.innerHeight / 2);
-
     if (part1Trigger) {
-      part1Path.style.transition = 'all 0.7s linear';
       part1Path.style.strokeWidth = '200';
       part1Text.style.opacity = '1';
       part1Text.style.visibility = 'visible';
       part1Text.style.transform = 'translateY(0px)';
-      part1Text.style.transition = 'all 0.7s linear';
     } else {
       part1Path.style.strokeWidth = '1';
       part1Text.style.opacity = '0';
@@ -95,12 +92,10 @@ const Section2 = ({ scrollPercent }: Props) => {
     }
 
     if (part2Trigger) {
-      part2Path.style.transition = 'all 0.7s linear';
       part2Path.style.strokeWidth = '200';
       part2Text.style.opacity = '1';
       part2Text.style.visibility = 'visible';
       part2Text.style.transform = 'translateY(0px)';
-      part2Text.style.transition = 'all 0.7s linear';
     } else {
       part2Path.style.strokeWidth = '1';
       part2Text.style.opacity = '0';
@@ -109,32 +104,24 @@ const Section2 = ({ scrollPercent }: Props) => {
     }
 
     if (part3Trigger) {
-      part3Path.style.transition = 'all 0.7s linear';
       part3Path.style.strokeWidth = '200';
-
       part3Text.style.opacity = '1';
       part3Text.style.visibility = 'visible';
       part3Text.style.transform = 'translateY(0px)';
-      part3Text.style.transition = 'all 0.7s linear';
     } else {
       part3Path.style.strokeWidth = '1';
-
       part3Text.style.opacity = '0';
       part3Text.style.visibility = 'hidden';
       part3Text.style.transform = 'translateY(50px)';
     }
 
     if (part4Trigger) {
-      part4Path.style.transition = 'all 0.7s linear';
       part4Path.style.strokeWidth = '200';
-
       part4Text.style.opacity = '1';
       part4Text.style.visibility = 'visible';
       part4Text.style.transform = 'translateY(0px)';
-      part4Text.style.transition = 'all 0.7s linear';
     } else {
       part4Path.style.strokeWidth = '1';
-
       part4Text.style.opacity = '0';
       part4Text.style.visibility = 'hidden';
       part4Text.style.transform = 'translateY(50px)';
@@ -272,6 +259,6 @@ const Section2 = ({ scrollPercent }: Props) => {
       </div>
     </Section>
   );
-};
+}
 
 export default Section2;
