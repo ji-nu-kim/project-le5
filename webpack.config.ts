@@ -80,15 +80,15 @@ const config: Configuration = {
     }),
   ],
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '/build/',
+    publicPath: '/dist/',
   },
   devServer: {
     // 웹팩 데브서버 쓰는 이유(배포에서 localhost를 안쓰기때문에 데브서버 쓰는게 편함)
     historyApiFallback: true, // 1.라우팅을 해준다
     port: 3090,
-    publicPath: '/build/', // 2. 핫리로딩
+    publicPath: '/dist/', // 2. 핫리로딩
     proxy: {
       '/api/': {
         target: 'http://localhost:3095',
