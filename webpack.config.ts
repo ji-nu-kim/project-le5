@@ -80,9 +80,9 @@ const config: Configuration = {
     }),
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'build'),
     filename: '[name].js',
-    publicPath: '/dist/',
+    publicPath: '/build/',
   },
   devServer: {
     // 웹팩 데브서버 쓰는 이유(배포에서 localhost를 안쓰기때문에 데브서버 쓰는게 편함)

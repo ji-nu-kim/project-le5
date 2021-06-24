@@ -1,4 +1,4 @@
-export const centerHeight = (element: SVGSVGElement, height: number): boolean => {
+const centerOfScreen = (element: SVGSVGElement, height: number): boolean => {
   let top = element.getBoundingClientRect().top + element.height.baseVal.value / 2;
   if (top < height + 100) {
     return true;
@@ -6,3 +6,5 @@ export const centerHeight = (element: SVGSVGElement, height: number): boolean =>
     return false;
   }
 };
+
+export default centerOfScreen;

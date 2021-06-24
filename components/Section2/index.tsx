@@ -1,4 +1,4 @@
-import { centerHeight } from '@utils/centerHeight';
+import centerOfScreen from '@utils/centerOfScreen';
 import React, { useRef } from 'react';
 import { Section } from './styles';
 
@@ -75,10 +75,10 @@ function Section2({ scrollPercent }: Props) {
       part4Text.style.visibility = 'hidden';
     }
 
-    const part1Trigger = centerHeight(svg1, window.innerHeight / 2);
-    const part2Trigger = centerHeight(svg2, window.innerHeight / 2);
-    const part3Trigger = centerHeight(svg3, window.innerHeight / 2);
-    const part4Trigger = centerHeight(svg4, window.innerHeight / 2);
+    const part1Trigger = centerOfScreen(svg1, window.innerHeight / 2);
+    const part2Trigger = centerOfScreen(svg2, window.innerHeight / 2);
+    const part3Trigger = centerOfScreen(svg3, window.innerHeight / 2);
+    const part4Trigger = centerOfScreen(svg4, window.innerHeight / 2);
     if (part1Trigger) {
       part1Path.style.strokeWidth = '200';
       part1Text.style.opacity = '1';
