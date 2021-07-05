@@ -32,7 +32,7 @@ http://project-le5.s3-website.ap-northeast-2.amazonaws.com/
 (perspective와 translateZ값을 이용해 텍스트가 화면 밖에서 안으로 들어오는 효과를 만들었습니다)
 
 #### Section2
-![캡쳐이미지2](./public/capture3.gif "캡쳐이미지2")
+![캡쳐이미지2](./public/capture2.gif "캡쳐이미지2")
 - svg의 path를 이용해 글자를 만들어 이미지를 넣었습니다
 - svg의 strokeWidth값을 이용해 글자에서 이미지로 변하는 효과를 만들었습니다
 
