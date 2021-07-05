@@ -5,18 +5,18 @@
 
 ### 사용한 기능
 
-#### 1.react
+####1. react
 >섹션별로 나누어 코드를 관리할 수 있다는 장점때문에 react를 사용했습니다
-#### 2.styled-component
+####2. styled-component
 >컴포넌트 별로 스타일을 적용할 수 있다는 편리함때문에 styled-component를 사용했습니다
 
 ### utils함수
 
-#### 1.centerOfScreen
+####1. centerOfScreen
 >element가 화면의 정중앙에 위치했음을 감지합니다
-#### 2.scrollCalculate
+####2. scrollCalculate
 >페이지 전체의 높이 값을 0 ~ 1로 계산해 스크롤 값을 활용하기 편리하게 만들어줍니다
-#### 3.scrollValue
+####3. scrollValue
 >스크롤 이벤트를 주고 싶은 구간에 원하는 값을 입력하면 값을 계산해줍니다
 
 ### components 구조

@@ -31,12 +31,11 @@ export const Section = styled.section`
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 25% 60% 15%;
+    grid-template-rows: 25% 50% 25%;
     align-items: center;
     justify-items: center;
 
     .part-header {
-      align-self: flex-end;
       text-align: center;
       .part-main-title {
         font-size: 3rem;
@@ -49,8 +48,9 @@ export const Section = styled.section`
       }
     }
     .description {
-      transition: all 0.7s linear;
+      margin-top: 2rem;
       align-self: flex-start;
+      transition: all 0.7s linear;
       font-size: 0.7rem;
       visibility: hidden;
       opacity: 0;
@@ -111,11 +111,7 @@ export const Section = styled.section`
 
   @media (min-width: 548px) {
     .part {
-      .part-header {
-        padding-bottom: 1rem;
-      }
       .description {
-        padding-top: 1rem;
         font-size: 0.8rem;
         span {
           font-size: 1rem;
